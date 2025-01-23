@@ -1,0 +1,83 @@
+---
+title: "PS01 - Bayesian Statistics"
+output: pdf_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 01
+
+Three prisoners are informed by their jailer that one of them has been chosen at random to be freed while the other two will remain in prison. Prisoner A asks the jailer to tell them privately which of their fellow prisoners will remain in prison, claiming that there would be no harm in divulging the information, since she already knows that at least one will stay in prison. The jailer refuses to give the answer, pointing out that if A knew which of his fellows were to remain in prison, then her own probability of being set free would rise from $\frac{1}{3}$ to $\frac{1}{2}$. What do you think about the jailer’s reasoning?
+
+**Answer:**
+
+The jailer's reasoning is incorrect because the prisoner who will be freed has indeed already been chosen, and that choice is independent of Prisoner A's knowledge. Therefore, Prisoner A's actual probability of being freed remains $\frac{1}{3}$ regardless of any additional information about who among the other prisoners will remain in prison.
+
+However, what changes with the additional information is not Prisoner A's probability of being freed but rather the perception or likelihood of correctly guessing who will be freed. If the jailer reveals which prisoner will remain in prison, Prisoner A's odds of correctly guessing who is freed (between the remaining two possibilities) might appear to improve from $\frac{1}{3}$ to $\frac{1}{2}$. This apparent improvement in guessing odds does not affect the actual underlying probability of being freed, which remains $\frac{1}{3}$.
+
+------------------------------------------------------------------------
+
+## Question 02
+
+Suppose that 5% of males and 0.25% of non-males are color-blind. A color-blind person is chosen at random. What is the probability of this person being male? (Hint: Assume that there are an equal number of males and non-males.)
+
+**Answer:**
+
+Let:
+
+M = Probability of of male
+
+C = Probability of being colorblind
+
+$P(M)=P(M′)=0.5$
+
+$P(C|M) = 0.05$
+
+$P(C|M') = 0.0025$
+
+$$P(M \cap C) = P(C|M) \cdot P(M) = 0.05 \cdot 0.5 = 0.025$$ $$P(M' \cap C) = P(C|M') \cdot P(M') = 0.0025 \cdot 0.5 = 0.00125$$
+
+$$P(C) = P(M \cap C) + P(M' \cap C) = 0.025 + 0.00125 = 0.02625$$
+
+$$P(M|C) = \frac{P(M \cap C)}{P(C)} = \frac{0.025}{0.02625} = 0.9524$$
+
+Therefore, probability of being male given that that person is color blind is 95.24%.
+
+------------------------------------------------------------------------
+
+### Question 03
+
+**Probability calculation for genetics (from Lindley, 1965):** Suppose that in each individual of a large population there is a pair of genes, each of which can be either $x$ or $X$, that controls eye color. Those with $xx$ have blue eyes, while heterozygotes (those with $Xx$ or $xX$) and those with $XX$ have brown eyes. The proportion of blue-eyed individuals is $p^2$ and of heterozygotes is $2p(1 - p)$, where $0 < p < 1$. Each parent transmits one of its own genes to the child. If a parent is a heterozygote, the probability that it transmits the gene of type $X$ is $\frac{1}{2}$.
+
+Assuming random mating, show that among brown-eyed children of brown-eyed parents, the expected proportion of heterozygotes is $\frac{2p}{1 + 2p}$.
+
+Suppose Judy, a brown-eyed child of brown-eyed parents, marries a heterozygote, and they have $n$ children, all brown-eyed. Find: 1. The posterior probability that Judy is a heterozygote and the probability that her first grandchild has blue eyes.
+
+**Answer:**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------
