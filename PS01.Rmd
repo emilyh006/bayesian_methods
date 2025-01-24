@@ -61,23 +61,47 @@ Suppose Judy, a brown-eyed child of brown-eyed parents, marries a heterozygote, 
 
 
 
+---
+
+### Question 04
+
+**Conditional Probability:** Approximately 1 out of 125 births are fraternal twins, and 1 out of 300 births are identical twins. Elvis Presley had a twin brother (who died at birth). What is the probability that Elvis was an identical twin? (You may approximate the probability of a boy or girl birth as 1/2.)
 
 
 
+**Answer:**
+
+Let: 
+
+F = Probability of fraternal twins 
+I = Probability of identical twins 
+B = Probability of being a boy 
+
+$P(F) = \frac{1}{125}$
+$P(I) = \frac{1}{300}$
+$P(B) = \frac{1}{2}$
+
+P(I/B)
 
 
 
+---
 
 
+### Question 05
 
+60% of families in a certain community own their car. 30% own their home. 20% own both their car and their home. If a family is randomly chosen, what is the probability that this family own a car or a house, but not both?
 
+**Answer:**
 
+Let:
 
+H = Probability of owning house
 
+C = Probability of owning car
 
+$P(C) = 0.6$ $P(H) = 0.3$ $P(C \cap H) = 0.2$
 
-
-
-
+$P(\text{Car or House but not both}) = P(C)+ P(H) − 2P(C \cap H) = 0.6 + 0.3 - 2(0.2) = 0.5$
 
 ------------------------------------------------------------------------
