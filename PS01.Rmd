@@ -25,18 +25,11 @@ However, what changes with the additional information is not Prisoner A's probab
 Suppose that 5% of males and 0.25% of non-males are color-blind. A color-blind person is chosen at random. What is the probability of this person being male? (Hint: Assume that there are an equal number of males and non-males.)
 
 **Answer:**
+M = Probability of of male & C = Probability of being colorblind
 
-Let:
+$P(M)=P(M')=0.5$
 
-M = Probability of of male
-
-C = Probability of being colorblind
-
-$P(M)=P(M′)=0.5$
-
-$P(C|M) = 0.05$
-
-$P(C|M') = 0.0025$
+$P(C|M)=0.05$ $P(C|M') = 0.0025$
 
 $$P(M \cap C) = P(C|M) \cdot P(M) = 0.05 \cdot 0.5 = 0.025$$ $$P(M' \cap C) = P(C|M') \cdot P(M') = 0.0025 \cdot 0.5 = 0.00125$$
 
@@ -70,7 +63,7 @@ $\text{P (n brown-eyed children | Judy = heterozygote)} = \frac{3}{4}^n$
 
 The posterior probability that Judy is a heterozygote is: $$\text{P(Judy = heterozygote|n brown-eyed children)} = \frac{\text{P(n brown-eyed children|Judy = heterozygote)}}{\text{P(n brown-eyed children)}}$$
 
-$\text{P (n brown-eyed children)} = \text{P(brown-eyed children∣Judy = Xx) * P(Judy=Xx) + P(brown-eyed children∣Judy=XX) * P(Judy=XX)}$
+$P(\text{brown-eyed children} \mid \text{Judy} = Xx) \cdot P(\text{Judy} = Xx) + P(\text{brown-eyed children} \mid \text{Judy} = XX) \cdot P(\text{Judy} = XX)$
 
 $\text{P (n brown-eyed children)} = \left(\frac{3}{4}\right)^n \cdot \frac{2p}{1 + 2p} + (1) \cdot \frac{1}{1 + 2p}$
 
@@ -128,6 +121,6 @@ C = Probability of owning car
 
 $P(C) = 0.6$ $P(H) = 0.3$ $P(C \cap H) = 0.2$
 
-$P(\text{Car or House but not both}) = P(C)+ P(H) − 2P(C \cap H) = 0.6 + 0.3 - 2(0.2) = 0.5$
+$P(\text{Car or House but not both}) = P(C)+ P(H) - 2P(C \cap H) = 0.6 + 0.3 - 2(0.2) = 0.5$
 
 ------------------------------------------------------------------------
