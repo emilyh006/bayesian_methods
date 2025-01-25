@@ -54,39 +54,65 @@ Therefore, probability of being male given that that person is color blind is 95
 
 Assuming random mating, show that among brown-eyed children of brown-eyed parents, the expected proportion of heterozygotes is $\frac{2p}{1 + 2p}$.
 
-Suppose Judy, a brown-eyed child of brown-eyed parents, marries a heterozygote, and they have $n$ children, all brown-eyed. Find: 1. The posterior probability that Judy is a heterozygote and the probability that her first grandchild has blue eyes.
+Suppose Judy, a brown-eyed child of brown-eyed parents, marries a heterozygote, and they have $n$ children, all brown-eyed. Find the posterior probability that Judy is a heterozygote and the probability that her first grandchild has blue eyes.
 
 **Answer:**
 
+$\text{P of having blue eye} = p^2$
 
+$\text{P of being heterozygote} = 2p(1-p)$
 
+$\text{P of XX (having brown eye and not heterozygote)} = 1 - p^2 - 2p(1 - p) = (1-p)^2$
 
----
+$\text{P(having brown eye | brown eye parent)} = \frac{2p}{1 + 2p}$.
+
+$\text{P (n brown-eyed children | Judy = heterozygote)} = \frac{3}{4}^n$
+
+The posterior probability that Judy is a heterozygote is: $$\text{P(Judy = heterozygote|n brown-eyed children)} = \frac{\text{P(n brown-eyed children|Judy = heterozygote)}}{\text{P(n brown-eyed children)}}$$
+
+$\text{P (n brown-eyed children)} = \text{P(brown-eyed children∣Judy = Xx) * P(Judy=Xx) + P(brown-eyed children∣Judy=XX) * P(Judy=XX)}$
+
+$\text{P (n brown-eyed children)} = \left(\frac{3}{4}\right)^n \cdot \frac{2p}{1 + 2p} + (1) \cdot \frac{1}{1 + 2p}$
+
+$\text{P(Judy = heterozygote|n brown-eyed children)} = \frac{\left(\frac{3}{4}\right)^n \cdot \frac{2p}{1 + 2p}}{\left(\frac{3}{4}\right)^n \cdot \frac{2p}{1 + 2p} + \frac{1}{1 + 2p}}$
+
+$$\text{P(Judy = heterozygote|n brown-eyed children)} = \frac{\left(\frac{3}{4}\right)^n \cdot 2p }{\left(\frac{3}{4}\right)^n \cdot 2p + 1}$$
+
+Her first grandchild has blue eyes if Judy passes and her partner, heterozygote, both passes X ($\frac{1}{2}$);
+
+$P(\text{blue eyes |Judy = heterozygote}) = \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$
+
+The probability that the first grandchild has blue eyes is:
+
+$$P(\text{blue eyes for first grandchild}) = P(\text{Judy} = Xx \mid \text{all brown-eyed children}) \cdot \frac{1}{4}$$
+
+$$P(\text{blue eyes for first grandchild}) = \frac{\left(\frac{3}{4}\right)^n \cdot 2p}{\left(\frac{3}{4}\right)^n \cdot 2p + 1} \cdot \frac{1}{4}$$
+
+------------------------------------------------------------------------
 
 ### Question 04
 
 **Conditional Probability:** Approximately 1 out of 125 births are fraternal twins, and 1 out of 300 births are identical twins. Elvis Presley had a twin brother (who died at birth). What is the probability that Elvis was an identical twin? (You may approximate the probability of a boy or girl birth as 1/2.)
 
-
-
 **Answer:**
 
-Let: 
+Let:
 
-F = Probability of fraternal twins 
-I = Probability of identical twins 
-B = Probability of being a boy 
+F = Probability of fraternal twins
+
+I = Probability of identical twins
+
+B = Probability of having a twin brother
 
 $P(F) = \frac{1}{125}$
+
 $P(I) = \frac{1}{300}$
-$P(B) = \frac{1}{2}$
 
-P(I/B)
+$P(B) = P(B|I) \cdot P(I) + P(B|F) \cdot P(F) = \frac{1}{2} \cdot \frac{1}{300} + \frac{1}{4} \cdot \frac{1}{125} = 0.00366..$
 
+$P(I|B) = \frac{P(B|I) P(I)}{P(B)} = \frac{\frac{1}{2} \cdot \frac{1}{300}}{0.00366} =0.4545 =45.45\%$
 
-
----
-
+------------------------------------------------------------------------
 
 ### Question 05
 
