@@ -18,9 +18,45 @@ the probability $\theta$ that a coin will yield a ‘head’ when spun in a
 specified manner. The coin is independently spun ten times, and ‘heads’
 appear fewer than 3 times. You are not told how many heads were seen,
 only that the number is less than 3. Calculate the exact posterior
-density (up to a proportionality constant) for $\theta$ and sketch it using R.
+density (up to a proportionality constant) for $\theta$ and sketch it
+using R.
 
 **Answer:**
+
+Posterior Density(up to a proportionality constant) :
+$f(\theta|data) \propto P(data|\theta)f(\theta)$
+
+Prior ($f(\theta)$) : Beta (4,4) = $f(\theta) = \theta^3 - (1-\theta)^3$
+
+Likelihood $P(data|\theta)$ :
+
+$$
+P(\text{data} \mid \theta) = \binom{10}{0} (1-\theta)^{10} + \binom{10}{1} \theta (1-\theta)^9 + \binom{10}{2} \theta^2 (1-\theta)^8
+$$
+
+$$
+= (1-\theta)^{10} + 10\theta(1-\theta)^9 + 45\theta^2(1-\theta)^8
+$$
+
+Posterior: $$
+f(\theta \mid \text{data}) \propto P(\text{data} \mid \theta) f(\theta)
+$$
+
+$$\propto \left( (1-\theta)^{10} + 10\theta(1-\theta)^9 + 45\theta^2(1-\theta)^8 \right) \theta^3 (1-\theta)^3$$
+
+$$= \theta^3 (1-\theta)^{13} + 10\theta^4 (1-\theta)^{12} + 45\theta^5 (1-\theta)^{11}$$
+
+```{r}
+posterior_density <- function(theta) {
+  (theta^3 * (1 - theta)^13) + (10 * theta^4 * (1 - theta)^12) + (45 * theta^5 * (1 - theta)^11)
+}
+
+theta_vals <- seq(0, 1, length.out = 1000)
+
+posterior_density_val <- sapply(theta_vals, posterior_density)
+
+plot(theta_vals, posterior_density_val, xlab = "Theta", ylab = "Posterior Density",  main = "Posterior Density of θ")
+```
 
 ------------------------------------------------------------------------
 
@@ -28,59 +64,136 @@ density (up to a proportionality constant) for $\theta$ and sketch it using R.
 
 Suppose that $X_1$ and $X_2$ are independent random variables, and $X_i$
 has the exponential distribution with parameter $\beta_i (i = 1,2)$.
-Show that for each constant$k > 0$:
+Show that for each constant $k > 0$:
 
 $$P(X_1 > kX_2) = \frac{\beta_2}{\beta_2 + k\beta_1}$$
 
 How much is $P(X_1 \leq kX_2)$
 
+**Answer:**
 
-**Answer:** 
+### **Exponential Distribution Function**:
 
+$\beta e^{-\beta x}, \quad x > 0,\quad i = {1, 2}$
+
+### **Joint PDF**:
+
+$f_{X_1, X_2}(x_1, x_2) = f_{X_1}(x_1) f_{X_2}(x_2) = (\beta_1 e^{-\beta_1 x_1}) (\beta_2 e^{-\beta_2 x_2})$
+
+### **Compute**: $P(X_1 > kX_2)$
+
+We integrate over the region where $X_1 > kX_2$:
+
+$$P(X_1 > kX_2) = \int_0^\infty \int_{k x_2}^\infty \beta_1 e^{-\beta_1 x_1} \beta_2 e^{-\beta_2 x_2} \, dx_1 \, dx_2$$
+
+#### Inner Integral
+
+The inner integral evaluates:
+
+$$
+\int_{k x_2}^\infty \beta_1 e^{-\beta_1 x_1} \, dx_1
+$$
+
+Computing this:
+
+$$
+\beta_1 \int_{k x_2}^\infty e^{-\beta_1 x_1} \, dx_1 = \beta_1 e^{-\beta_1 k x_2} \frac{1}{\beta_1} = e^{-\beta_1 k x_2}
+$$
+
+Thus, the probability simplifies to:
+
+$$
+P(X_1 > kX_2) = \int_0^\infty \beta_2 e^{-\beta_2 x_2} e^{-\beta_1 k x_2} \, dx_2
+$$
+
+#### Outer Integral
+
+Since $e^{-(\beta_2 + k\beta_1)x_2}$ appears, we evaluate:
+
+$$
+\int_0^\infty \beta_2 e^{-(\beta_2 + k\beta_1)x_2} \, dx_2
+$$
+
+This integral evaluates to:
+
+$$
+\frac{\beta_2}{\beta_2 + k\beta_1}
+$$
+
+### Final Answer
+
+Since the total probability is 1, we find:
+
+$$
+P(X_1 \leq kX_2) = 1 - P(X_1 > kX_2)
+$$
+
+$$
+P(X_1 \leq kX_2) = 1 - \frac{\beta_2}{\beta_2 + k\beta_1}
+$$
+
+$$
+= \frac{\beta_2 + k\beta_1}{\beta_2 + k\beta_1} - \frac{\beta_2}{\beta_2 + k\beta_1}
+$$
+
+$$
+= \frac{k\beta_1}{\beta_2 + k\beta_1}
+$$
+
+$$
+P(X_1 > kX_2) = \frac{\beta_2}{\beta_2 + k\beta_1}
+$$
+
+$$
+P(X_1 \leq kX_2) = \frac{k\beta_1}{\beta_2 + k\beta_1}
+$$
 
 ------------------------------------------------------------------------
 
 ### Question 03
 
-
-Suppose that $X_1, ...., X_n$ form a random sample from an exponential distribution for which the
-value of the parameter $\beta$ is unknown $(\beta > 0)$  Find the Maximum Likelihood Estimator of
-$\beta$.
+Suppose that $X_1, ...., X_n$ form a random sample from an exponential
+distribution for which the value of the parameter $\beta$ is unknown
+$(\beta > 0)$ Find the Maximum Likelihood Estimator of $\beta$.
 
 **Answer:**
-
-
 
 ------------------------------------------------------------------------
 
 ### Question 04
 
-Let $X_1, ...., X_n$ a random sample of size n from the distribution specified in each question below.
-Show that the statistic $T$ specified is a suﬀicient statistic for the parameter.
-
-
+Let $X_1, ...., X_n$ a random sample of size n from the distribution
+specified in each question below. Show that the statistic $T$ specified
+is a suﬀicient statistic for the parameter.
 
 #### A
 
-Bernoulli distribution with parameter $p$, which is unknown $(0 < p< 1)$ and $T = \sum_{i=1}^{n} X_i$.
-
+Bernoulli distribution with parameter $p$, which is unknown $(0 < p< 1)$
+and $T = \sum_{i=1}^{n} X_i$.
 
 #### B
-Geometric distribution with parameter $p$ unknown $(0 < p< 1)$ and $T = \sum_{i=1}^{n} X_i$
 
-
+Geometric distribution with parameter $p$ unknown $(0 < p< 1)$ and
+$T = \sum_{i=1}^{n} X_i$
 
 #### C
-Negative binomial distribution with parameters $r$ and $p$, where $r$ is known and $p$ is unknown $(0 < p< 1)$ and $T = \sum_{i=1}^{n} X_i$.
 
+Negative binomial distribution with parameters $r$ and $p$, where $r$ is
+known and $p$ is unknown $(0 < p< 1)$ and $T = \sum_{i=1}^{n} X_i$.
 
 #### D
-Normal distribution for which the mean $\mu$ is known but the variance $\sigma^2 > 0$ is unknown; $T = \sum_{i=1}^{n} (X_i - \mu)^2$.
+
+Normal distribution for which the mean $\mu$ is known but the variance
+$\sigma^2 > 0$ is unknown; $T = \sum_{i=1}^{n} (X_i - \mu)^2$.
 
 #### E
-The gamma distribution with parameters $\alpha$ and $\beta$, where the value of $\beta$ is known and the
-value of $\alpha$ is unknown $(\alpha >0)$; $T = \prod_{i=1}^{n} X_i$
+
+The gamma distribution with parameters $\alpha$ and $\beta$, where the
+value of $\beta$ is known and the value of $\alpha$ is unknown
+$(\alpha >0)$; $T = \prod_{i=1}^{n} X_i$
 
 #### F
-The beta distribution with parameters $\alpha$ and $\beta$, where the value of $\beta$ is known and the value of $\alpha$ is unknown $(\alpha >0)$; $T = \prod_{i=1}^{n} X_i$. 
 
+The beta distribution with parameters $\alpha$ and $\beta$, where the
+value of $\beta$ is known and the value of $\alpha$ is unknown
+$(\alpha >0)$; $T = \prod_{i=1}^{n} X_i$.
