@@ -1,0 +1,86 @@
+---
+title: "PS02 - Bayesian Statistics"
+output: pdf_document
+date: "`r Sys.Date()`"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 01
+
+Posterior inference: suppose you have a Beta(4, 4) prior distribution on
+the probability $\theta$ that a coin will yield a ‘head’ when spun in a
+specified manner. The coin is independently spun ten times, and ‘heads’
+appear fewer than 3 times. You are not told how many heads were seen,
+only that the number is less than 3. Calculate the exact posterior
+density (up to a proportionality constant) for $\theta$ and sketch it using R.
+
+**Answer:**
+
+------------------------------------------------------------------------
+
+## Question 02
+
+Suppose that $X_1$ and $X_2$ are independent random variables, and $X_i$
+has the exponential distribution with parameter $\beta_i (i = 1,2)$.
+Show that for each constant$k > 0$:
+
+$$P(X_1 > kX_2) = \frac{\beta_2}{\beta_2 + k\beta_1}$$
+
+How much is $P(X_1 \leq kX_2)$
+
+
+**Answer:** 
+
+
+------------------------------------------------------------------------
+
+### Question 03
+
+
+Suppose that $X_1, ...., X_n$ form a random sample from an exponential distribution for which the
+value of the parameter $\beta$ is unknown $(\beta > 0)$  Find the Maximum Likelihood Estimator of
+$\beta$.
+
+**Answer:**
+
+
+
+------------------------------------------------------------------------
+
+### Question 04
+
+Let $X_1, ...., X_n$ a random sample of size n from the distribution specified in each question below.
+Show that the statistic $T$ specified is a suﬀicient statistic for the parameter.
+
+
+
+#### A
+
+Bernoulli distribution with parameter $p$, which is unknown $(0 < p< 1)$ and $T = \sum_{i=1}^{n} X_i$.
+
+
+#### B
+Geometric distribution with parameter $p$ unknown $(0 < p< 1)$ and $T = \sum_{i=1}^{n} X_i$
+
+
+
+#### C
+Negative binomial distribution with parameters $r$ and $p$, where $r$ is known and $p$ is unknown $(0 < p< 1)$ and $T = \sum_{i=1}^{n} X_i$.
+
+
+#### D
+Normal distribution for which the mean $\mu$ is known but the variance $\sigma^2 > 0$ is unknown; $T = \sum_{i=1}^{n} (X_i - \mu)^2$.
+
+#### E
+The gamma distribution with parameters $\alpha$ and $\beta$, where the value of $\beta$ is known and the
+value of $\alpha$ is unknown $(\alpha >0)$; $T = \prod_{i=1}^{n} X_i$
+
+#### F
+The beta distribution with parameters $\alpha$ and $\beta$, where the value of $\beta$ is known and the value of $\alpha$ is unknown $(\alpha >0)$; $T = \prod_{i=1}^{n} X_i$. 
+
